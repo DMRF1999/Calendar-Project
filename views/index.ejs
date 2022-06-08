@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index Page</title>
+  </head>
+  <body>
+    <h1>All my Events!</h1>
+    <a href="/events/new">Create a new cat</a>
+
+    <ul>
+    <% Event.forEach((el) => { %>
+      <a href="/events/<%= el._id %>">
+        <li>Event: <%= el.title %> Date: <%= el.date %> Description: <%= el.description %> years old </li>
+      </a>
+    <% }) %>
+  </ul>
+
+
+  </body>   
+</html>
