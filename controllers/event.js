@@ -1,61 +1,54 @@
 const res = require('express/lib/response');
 const Event = require('../models/event')
 
-const index = (req, res) => {
-    Event.find({}, (err, ev) => {
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        res.json(ev)
+function createEvent(req,res){
+    let newEvent = new Event(req.body)
+    newEvent.save(() => console.log("New event was saved!"))
+    res.redirect('/events')
+}
+
+function newEvent(req,res){
+    res.render('newEvent')
+}
+
+async function showEvents(req, res) {
+    let allEvents = await Event.find({})
+    res.render('index', {allEvents})
+}
+
+function showDetail(req, res) {
+    console.log('Show Detail function ran')
+    console.log(req.params.eventId)
+    Event.findById(req.params.eventId).then((event) => {
+        console.log(event)
+        res.render('eventDetail', {event})
     })
 }
 
-let show = (req, res) => {
-    Event.findById(req.params.id, (err, ev) => {
-        res.render('../views/index.ejs', {Event})
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        res.json(ev)
-    })
+async function updateEvent(req, res) {
+    console.log('Update function ran!')
+    console.log(req.params.eventId)
+    console.log(req.body)
+    await Event.findByIdAndUpdate(req.params.eventId, req.body)
+    // mongoose update
+    res.redirect(`/events/${req.params.eventId}`)
 }
 
-let create = (req, res) => {
-    Event.create(req.body, (err, ev) => {
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        res.json(ev)
-    })
+function deleteEvent(req,res) {
+    console.log('Delete function ran!')
+
+    //write mongoose delete code
+    // await Cat.deleteOne({ _id: req.params.catId})
+    Event.findByIdAndDelete(req.params.eventId)
+
+    res.redirect('/events')
 }
 
-let deleteIt = (req, res) => {
-    Event.findByIdAndDelete(req.params.id, (err, ev) => {
-        if(err){
-            res.status(400).json(ev)
-            return
-        }
-        res.json(ev)
-    })
-}
-
-let update = (req, res) => {
-    Event.findByIdAndUpdate(req.params.id, req.body, {new: true} ,(err, ev) =>{
-        if(err){
-            res.status(400).json(err)
-            return
-        }
-        res.json(ev)
-    })
-}
-
-module.exports = {
-    index,
-    show,
-    create,
-    deleteIt,
-    update
+module.exports= {
+    newEvent,
+    createEvent,
+    showEvents,
+    showDetail,
+    updateEvent,
+    deleteEvent
 }

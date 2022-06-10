@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details Page</title>
+</head>
+<body>
+    <a href="/events">Go Back</a>
+    <h1>Event Details Page</h1>
+    <h2>Title: <%= event.title %></h2>
+    <h2>Date: <%= event.date %></h2>
+    <h2>Description: <%= event.description %></h2>
+
+    <form method="POST" action="/events/<%= event._id %>?_method=PATCH">
+    <!-- <form method="POST" action="/events/<%= event._id %>"> -->
+        Date: <input name="date" type="text">
+        Description: <input name="description" type="text">
+        <input type="submit" value="Edit Event">
+    </form>
+
+    <form method="POST" action="/events/<%= event._id %>?_method=DELETE">
+        <input type="submit" value="Delete Event">
+    </form>
+</body>
+</html>

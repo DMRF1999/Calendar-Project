@@ -2,14 +2,16 @@ const express = require('express')
 const router = express.Router()
 const eventCtrl = require('../controllers/event')
 
-router.get('/events', eventCtrl.index)
+router.get('/events', eventCtrl.showEvents)
 
-router.get('/events/:id', eventCtrl.show)
+router.get('/events/new', eventCtrl.newEvent)
 
-router.post('/events/new', eventCtrl.create)
+router.post('/events', eventCtrl.createEvent)
 
-router.delete('/events/:id', eventCtrl.deleteIt)
+router.get('/events/:Id', eventCtrl.showDetail)
 
-router.put('/events/:id', eventCtrl.update)
+router.patch('/events/:Id', eventCtrl.updateEvent)
+
+router.delete('/events/:id', eventCtrl.deleteEvent)
 
 module.exports = router
