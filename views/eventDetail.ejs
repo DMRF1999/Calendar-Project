@@ -15,6 +15,7 @@
 
     <form method="POST" action="/events/<%= event._id %>?_method=PATCH">
     <!-- <form method="POST" action="/events/<%= event._id %>"> -->
+        Title: <input name="title" type="text">
         Date: <input name="date" type="text">
         Description: <input name="description" type="text">
         <input type="submit" value="Edit Event">

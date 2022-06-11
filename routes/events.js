@@ -8,10 +8,10 @@ router.get('/events/new', eventCtrl.newEvent)
 
 router.post('/events', eventCtrl.createEvent)
 
-router.get('/events/:Id', eventCtrl.showDetail)
+router.get('/events/:eventId', eventCtrl.showDetail)
 
-router.patch('/events/:Id', eventCtrl.updateEvent)
+router.patch('/events/:eventId', eventCtrl.updateEvent)
 
-router.delete('/events/:id', eventCtrl.deleteEvent)
+router.delete('/events/:eventId', eventCtrl.deleteEvent)
 
 module.exports = router

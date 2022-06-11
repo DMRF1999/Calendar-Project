@@ -16,12 +16,12 @@ async function showEvents(req, res) {
     res.render('index', {allEvents})
 }
 
-function showDetail(req, res) {
-    console.log('Show Detail function ran')
-    console.log(req.params.eventId)
-    Event.findById(req.params.eventId).then((event) => {
-        console.log(event)
-        res.render('eventDetail', {event})
+async function showDetail(req, res) {
+    console.log('Show Detail Function Ran')
+    console.log(req.params.eventid)
+    let event = await Event.findById(req.params.eventId)
+    res.render('eventDetail', {event})
+    Event.findById(req.params.eventId, function(err, event){
     })
 }
 
@@ -34,13 +34,10 @@ async function updateEvent(req, res) {
     res.redirect(`/events/${req.params.eventId}`)
 }
 
-function deleteEvent(req,res) {
+async function deleteEvent(req,res) {
     console.log('Delete function ran!')
-
-    //write mongoose delete code
-    // await Cat.deleteOne({ _id: req.params.catId})
+    await Event.deleteOne({ _id: req.params.eventId})
     Event.findByIdAndDelete(req.params.eventId)
-
     res.redirect('/events')
 }
 
