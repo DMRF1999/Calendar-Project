@@ -14,4 +14,7 @@ router.patch('/events/:eventId', eventCtrl.updateEvent)
 
 router.delete('/events/:eventId', eventCtrl.deleteEvent)
 
+router.get('/',eventCtrl.renderCalendar)
+
+
 module.exports = router

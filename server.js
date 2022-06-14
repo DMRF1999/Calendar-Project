@@ -1,13 +1,14 @@
 const express = require('express')
 const path = require('path');
+__dirname = path.resolve();
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const methodOverride = require('method-override')
 const PORT = 3000
 
-const eventRoutes = require('./routes/events')
-require('./config/database')
 
+const appRoutes = require('./routes/appRoute');
+require('./config/database')
 const app = express()
 
 app.set('views', path.join(__dirname, 'views'));
@@ -18,11 +19,12 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 app.use(cookieParser())
+app.use('/public', express.static('public'));
 app.use(methodOverride('_method'))
-app.use('/', eventRoutes)
+app.use('/', appRoutes)
 
 app.use(function(req, res, next) {
-    next(createErrior(404))
+    next(createError(404))
 })
 
 // error handler
@@ -35,6 +37,7 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
   });
+
   app.listen(PORT, ()=>{
     console.log("Connected", PORT)
 })

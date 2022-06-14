@@ -1,5 +1,6 @@
 const res = require('express/lib/response');
 const Event = require('../models/event')
+const calendar = require('../controllers/calendar')
 
 function createEvent(req,res){
     let newEvent = new Event(req.body)
@@ -41,11 +42,23 @@ async function deleteEvent(req,res) {
     res.redirect('/events')
 }
 
+
+function renderCalendar(req,res){
+    const year = req.query.year || 2020;
+    const months = ["January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"];
+  
+    res.render("calendar",{calendar: calendar(year),months,year});
+  };
+
+
+
 module.exports= {
     newEvent,
     createEvent,
     showEvents,
     showDetail,
     updateEvent,
-    deleteEvent
+    deleteEvent,
+    renderCalendar
 }
