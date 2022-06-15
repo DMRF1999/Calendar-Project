@@ -35,7 +35,9 @@
                 <% for(let y = 0;y < calendar[month][x].length;y++) { %>
                 <div class="date">
                     <div id="<%=calendar[month][x][y] %>">
+                        <a href="/events">
                         <%= calendar[month][x][y] %>
+                        </a>
                     </div>
                 </div>
                 <% } %>
