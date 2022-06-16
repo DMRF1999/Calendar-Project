@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const eventCtrl = require('../controllers/event')
 const userCtrl = require('../controllers/user')
+const {ensureAuthenticated} = require('../config/auth')
 
 router.get('/events', eventCtrl.showEvents)
 
@@ -17,15 +18,20 @@ router.delete('/events/:eventId', eventCtrl.deleteEvent)
 
 router.get('/calendar',eventCtrl.renderCalendar)
 
-router.get('/',userCtrl.renderHome)
+router.get('/', userCtrl.renderHome)
 
-router.get('/signup',userCtrl.renderSignup)
+router.get('/signup', (req,res)=>{
+    res.render('signup.ejs');
+})
+router.get('/calendar',ensureAuthenticated,(req,res)=>{
+    res.render('calendar',{
+        user: req.user
+    });
+})
 
-router.post('/signup',userCtrl.createUser)
-
-router.get('/login',userCtrl.renderLogin)
-
-router.get('/login',userCtrl.loginUser)
+router.get('/login', (req,res)=>{
+    res.render('login.ejs');
+})
 
 
 module.exports = router

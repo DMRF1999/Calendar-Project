@@ -1,18 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User </title>
-</head>
-<body>
-    <h1>This is our new User page</h1>
-    <form action="/signup" method="POST">
-        Username: <input name="username" type="text"><br>
-        Email: <input name="email" type="text"><br>
-        Password: <input name="password" type="text"><br>
-        <input type="submit" value="Create User!">
-    </form>
-</body>
-</html>
+<h1>Register</h1>
+<form action="/users/register" method="POST">
+<div>
+    <label for="name">Name</label>
+    <input
+      type="name"
+      name="name"
+      placeholder="Enter Name"
+      value="<%= typeof name != 'undefined' ? name : '' %>"
+    />
+  
+</div>
+<div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      placeholder="Enter Email"
+      value="<%= typeof email != 'undefined' ? email : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Create Password"
+      value="<%= typeof password != 'undefined' ? password : '' %>"
+    />
+  </div>
+  <div >
+    <label for="password2">Confirm Password</label>
+    <input
+      type="password"
+      name="password2"
+      placeholder="Confirm Password"
+      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">
+    Register
+  </button>
+</form>
+<p >Have An Account? <a href="/users/login">Login</a></p>
