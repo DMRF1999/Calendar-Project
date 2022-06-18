@@ -7,7 +7,8 @@ const expressEjsLayout = require('express-ejs-layouts')
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require("passport");
-const PORT = 3000
+require('dotenv').config()
+const PORT = port = normalizePort(process.env.PORT || '3000');
 
 
 require('./config/passport')(passport)

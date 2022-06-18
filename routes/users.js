@@ -12,7 +12,7 @@ router.post('/register',userCtrl.createUser)
 
 router.post('/login',userCtrl.login)
 
-router.post('/logout',userCtrl.logout)
+router.get('/logout',userCtrl.logout)
 
 //logout
 
