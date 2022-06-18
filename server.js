@@ -8,7 +8,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require("passport");
 require('dotenv').config()
-const PORT = normalizePort(process.env.PORT || '3000')
+const PORT = process.env.PORT || 8080;
 
 
 require('./config/passport')(passport)
