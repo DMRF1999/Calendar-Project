@@ -7,11 +7,6 @@ function renderHome(req,res){
     res.render('home')
 }
 
-//login handle
-function renderLogin(req,res){
-    res.render('login');
-}
-
 function renderSignup(req,res){
     res.render('signup')
     }
@@ -20,7 +15,7 @@ function renderSignup(req,res){
 function login(req,res,next){
 passport.authenticate('local',{
     successRedirect : '/calendar',
-    failureRedirect: '/users/login',
+    failureRedirect: '/',
     failureFlash : true
 })(req,res,next)
 }
@@ -75,7 +70,7 @@ passport.authenticate('local',{
                     .then((value)=>{
                         console.log(value)
                         req.flash('success_msg','You have now registered!');
-                        res.redirect('/users/login');
+                        res.redirect('/');
                     })
                     .catch(value=> console.log(value));
                       
@@ -96,6 +91,5 @@ module.exports = {
     renderHome,
     createUser,
     renderSignup,
-    renderLogin,
     logout
 }

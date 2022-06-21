@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Event </title>
-</head>
-<body>
-    <h1>This is our new event page</h1>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/stylesheets/login.css">
+
+<div class="login">
+  <div class="login-header">
+    <h1>New Event</h1>
     <form action="/events" method="POST">
-        Title: <input name="title" type="text"><br>
-        Date: <input name="date" type="text"><br>
-        Description: <input name="description" type="text"><br>
-        <input type="submit" value="Create Event!">
-    </form>
-</body>
-</html>
+  </div>
+  <div class="login-form">
+    <h3>Title:</h3>
+    <label for="title"></label>
+    <input
+    type="text"
+    name="title"
+    placeholder="Enter Title"
+/>
+    <h3>Date:</h3>
+    <label for="date"></label>
+    <input
+      type="text"
+      name="date"
+      placeholder="Enter Date"
+    />
+    <h3>Description:</h3>
+    <label for="description"></label>
+    <input
+      type="text"
+      name="description"
+      placeholder="Enter Description"
+    />
+    <br>
+    <input type="submit" value="Create Event!">
+  </form>
+  <br>
+  <a href="/events">Go Back</a>
+  </div>
+</div>

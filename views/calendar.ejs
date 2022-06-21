@@ -14,12 +14,12 @@
         <h1>Welcome to your calendar </h1>
         <a href="/users/logout">Logout</a>
 
-        <form action="/" method="get">
+        <form action="/calendar" method="get">
             <input type="text" placeholder="search year" name="year">
             <button type="submit">search</button>
         </form>
 
-        <h2>year <%= year %></h2>
+        <h2><%= year %></h2>
     </header>
 
 

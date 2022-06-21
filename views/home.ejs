@@ -1,7 +1,33 @@
-<html>
-<h1>Welcome!</h1>
-<p>Create an account or login</p>
-<a href="/users/register" class="btn btn-primary btn-block mb-2"
-  >Register</a>
-<a href="/users/login"> Login</a>
-</html>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/stylesheets/login.css">
+
+<div class="login">
+  <div class="login-header">
+    <h1>Login</h1>
+    <form action="/users/login" method="POST">
+  </div>
+  <div class="login-form">
+    <h3>Email:</h3>
+    <label for="email"></label>
+    <input
+    type="text"
+    name="email"
+    placeholder="Enter Email"
+/>
+    <h3>Password:</h3>
+    <label for="password"></label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter Password"
+    />
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+  </form>
+    <br>
+    <a class="sign-up" href="/users/register">Sign Up!</a>
+    <br>
+    <h6 class="no-access">Can't access your account?</h6>
+  </div>
+</div>
+<div class="error-page">

@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Index Page</title>
-    <link rel="stylesheet" href="/public/stylesheets/style.css" type="text/css">
-  </head>
-  <body>
-    <a href="/calendar">Go back</a>
-    <h1>All my Events!</h1>
-    <a href="/events/new">Create a new Event</a>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/stylesheets/login.css">
 
+<div class="login">
+  <div class="login-header">
+    <h1>All my Events</h1>
+  </div>
+  <div class="login-form">
+    <label for="event"></label>
     <ul>
-    <% allEvents.forEach((ev) => { %>
-      <a href="/events/<%= ev._id %>">
-        <li>Event: <%= ev.title %> Date: <%= ev.date %> Description: <%= ev.description %> </li>
-      </a>
-    <% }) %>
-  </ul>
-
-
-  </body>   
-</html>
+      <% allEvents.forEach((ev) => { %>
+        <a href="/events/<%= ev._id %>">
+          <li>Event: <%= ev.title %> Date: <%= ev.date %>  Description: <%= ev.description %> </li>
+        </a>
+      <% }) %>
+    </ul>
+    <br>
+    <a href="/events/new" class="new-event">Create a new Event</a>
+    <br>
+    <a href="/calendar">Go Back</a>
+  </div>
+</div>

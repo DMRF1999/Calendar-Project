@@ -1,28 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Details Page</title>
-</head>
-<body>
-    <a href="/events">Go Back</a>
-    <h1>Event Details Page</h1>
-    <h2>Title: <%= event.title %></h2>
-    <h2>Date: <%= event.date %></h2>
-    <h2>Description: <%= event.description %></h2>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/stylesheets/login.css">
 
+<div class="login">
+  <div class="login-header">
+    <h1>Event Details</h1>
+    <h6 style="color: black;"><%= event.title %></h6>
+    <h6 style="color: black;"><%= event.date %></h6>
+    <h6 style="color: black;"><%= event.description %></h6>
     <form method="POST" action="/events/<%= event._id %>?_method=PATCH">
-    <!-- <form method="POST" action="/events/<%= event._id %>"> -->
-        Title: <input name="title" type="text">
-        Date: <input name="date" type="text">
-        Description: <input name="description" type="text">
-        <input type="submit" value="Edit Event">
-    </form>
-
-    <form method="POST" action="/events/<%= event._id %>?_method=DELETE">
-        <input type="submit" value="Delete Event">
-    </form>
-</body>
-</html>
+        <!-- <form method="POST" action="/events/<%= event._id %>"> -->
+  </div>
+  <div class="login-form">
+    <h3>Title:</h3>
+    <label for="title"></label>
+    <input
+    type="text"
+    name="title"
+    placeholder="Enter Title"
+/>
+    <h3>Date:</h3>
+    <label for="date"></label>
+    <input
+      type="text"
+      name="date"
+      placeholder="Enter Date"
+    />
+    <h3>Description:</h3>
+    <label for="description"></label>
+    <input
+      type="text"
+      name="description"
+      placeholder="Enter Description"
+    />
+    <br>
+    <input type="submit" value="Edit Event">
+  </form>
+  <form method="POST" action="/events/<%= event._id %>?_method=DELETE">
+    <input type="submit" value="Delete Event">
+</form>
+<a href="/events">Go Back</a>
+  </div>
+</div>

@@ -1,18 +1,20 @@
+body {
+	background:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');
+    font-family: 'Ubuntu', sans-serif;
+    background-size: 100% 110%;
+}
+
 header{
     text-align: center;
 }
 
 header > h1{
-    color: blueviolet;
+    color: black;
 }
 
 .calendar-container{
     width: 100%;
- 
-
 }
-
-
 
 .month-container{
     width: 100%;
@@ -34,7 +36,6 @@ header > h1{
 .days{
     display: grid;
     grid-template-columns: repeat(7,1fr);
-   
     grid-gap: 1em;
 }
 
@@ -43,4 +44,16 @@ header > h1{
     text-align: center;
  
 }
+
+a {
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  a:hover{
+    color: black;
+    text-decoration: underline;
+    font-size: 175%;
+  }
 

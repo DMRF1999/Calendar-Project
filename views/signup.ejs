@@ -1,44 +1,53 @@
-<h1>Register</h1>
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/stylesheets/signup.css">
 <form action="/users/register" method="POST">
-<div>
-    <label for="name">Name</label>
-    <input
-      type="name"
+  <div class="login">
+    <div class="login-header">
+      <h1>Register</h1>
+      <form action="/users/register" method="POST">
+    </div>
+    <div class="login-form">
+      <h3>Name:</h3>
+      <label for="name"></label>
+      <input
+      type="text"
       name="name"
       placeholder="Enter Name"
       value="<%= typeof name != 'undefined' ? name : '' %>"
-    />
-  
-</div>
-<div>
-    <label for="email">Email</label>
-    <input
-      type="email"
-      name="email"
-      placeholder="Enter Email"
-      value="<%= typeof email != 'undefined' ? email : '' %>"
-    />
+  />
+      <h3>Email:</h3>
+      <label for="email"></label>
+      <input
+        type="text"
+        name="email"
+        placeholder="Enter Email"
+        value="<%= typeof email != 'undefined' ? email : '' %>"
+      />
+
+      <h3>Password:</h3>
+      <label for="password"></label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter Password"
+        value="<%= typeof password != 'undefined' ? password : '' %>"
+      />
+
+      <h3>Confirm Password:</h3>
+      <label for="password2"></label>
+      <input
+        type="password"
+        name="password2"
+        placeholder="Confirm Password"
+        value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+      />
+      <br>
+      <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+    <br>
+    <a class="sign-up" href="/">Have an account?</a>
+    <br>
+    </div>
   </div>
-  <div >
-    <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      placeholder="Create Password"
-      value="<%= typeof password != 'undefined' ? password : '' %>"
-    />
-  </div>
-  <div >
-    <label for="password2">Confirm Password</label>
-    <input
-      type="password"
-      name="password2"
-      placeholder="Confirm Password"
-      value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary btn-block">
-    Register
-  </button>
+  <div class="error-page">
 </form>
-<p >Have An Account? <a href="/users/login">Login</a></p>

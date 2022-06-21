@@ -4,8 +4,6 @@ const userCtrl = require('../controllers/user')
 
 //login handle
 
-router.get('/login',userCtrl.renderLogin)
-
 router.get('/register',userCtrl.renderSignup)
 
 router.post('/register',userCtrl.createUser)
